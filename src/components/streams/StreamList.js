@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchStreams } from "../../actions";
 import { Link } from 'react-router-dom';
+import { Input } from 'semantic-ui-react';
+import Icon from "semantic-ui-react/dist/commonjs/elements/Icon";
 
 class StreamList extends React.Component{
     componentDidMount() {
@@ -41,7 +43,7 @@ class StreamList extends React.Component{
             return (
               <div className="item" key={stream.id} >
                   {this.renderAdmin(stream)}
-                  <i className="large middle aligned icon camera" />
+                  <Icon color='violet' name='video' size='large' />
                     <div className="content">
                         <Link to={`/streams/${stream.id}`} className="header" >
                             {stream.title}
@@ -58,7 +60,7 @@ class StreamList extends React.Component{
     render() {
         return (
             <div>
-                <h2>..:: Streams ::..</h2>
+                <Input fluid icon='video' iconPosition='left' placeholder='Search Classrooms...' />
                 <div className="ui celled list">
                     {this.renderList()}
                 </div>
